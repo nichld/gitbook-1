@@ -38,7 +38,7 @@ export function OpenAPICodeSample(props: {
     const requestBodyContent = requestBody ? Object.entries(requestBody.content)[0] : undefined;
 
     const input: CodeSampleInput = {
-        url: getServersURL(data.servers) + data.path,
+        url: getServersURL(data.servers, context.enumSelectors) + data.path,
         method: data.method,
         body: requestBodyContent
             ? generateMediaTypeExample(requestBodyContent[1], { onlyRequired: true })
